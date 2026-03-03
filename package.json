@@ -2,6 +2,7 @@
   "name": "@uniswap/v4-core",
   "version": "1.0.2",
   "description": "🦄 Core smart contracts of Uniswap v4",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Uniswap/v4-core.git"
@@ -19,5 +20,8 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "devDependencies": {
+    "hardhat": "^3.1.10"
   }
 }
