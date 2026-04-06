@@ -81,7 +81,7 @@ All submodules initialized and populated.
 
 - `test/ModifyLiquidity.t.sol` (lines 50-53): overrides fuzz runs for all 4 profiles (default=10, pr=10, ci=500, debug=10)
 
-These per-test overrides will be silently ignored by Hardhat 3.
+The `default` profile inline override is supported since Hardhat 3.3.0 at function level. Non-default profiles (`pr`, `ci`, `debug`) cause HHE810 errors — their `///` directives were changed to `//` to prevent parsing.
 
 ## Forge-dependent `package.json` Scripts
 

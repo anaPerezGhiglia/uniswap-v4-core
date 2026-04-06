@@ -124,7 +124,7 @@ contract CustomAccountingTest is Test, Deployers {
         SwapParams memory params =
             SwapParams({zeroForOne: true, amountSpecified: -int256(amountToSwap), sqrtPriceLimitX96: SQRT_PRICE_1_2});
         swapRouter.swap(key, params, testSettings, ZERO_BYTES);
-        vm.snapshotGasLastCall("swap CA custom curve + swap noop");
+        vm.snapshotGasLastCall("swap CA custom curve - swap noop");
 
         // the custom curve hook is 1-1 linear
         assertEq(currency0.balanceOf(address(this)), balanceBefore0 - amountToSwap, "amount 0");

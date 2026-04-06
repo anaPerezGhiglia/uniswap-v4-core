@@ -76,15 +76,15 @@ export default defineConfig({
       // test settings. No equivalent for per-profile fuzz overrides.
       // TODO: [profile.ci.fuzz] sets runs = 100000 — same limitation.
 
-      // TODO: Inline forge-config in test/ModifyLiquidity.t.sol (fuzz.runs overrides
-      // per-test) is silently ignored by Hardhat 3.
-      // See: https://github.com/NomicFoundation/hardhat/issues/7355
+      // Note: Inline forge-config in test/ModifyLiquidity.t.sol (fuzz.runs overrides
+      // per-test) is supported at function level since Hardhat 3.3.0.
+      // Non-default profile references (pr, ci, debug) cause HHE810 errors — they
+      // were changed from `///` to `//` comments to prevent parsing.
     },
   },
 
   // === Foundry-only settings (no Hardhat equivalent) ===
   // TODO: out = "out" — Hardhat uses its own artifacts/ + cache/ dirs
   // TODO: libs = ["lib"] — Hardhat auto-resolves via remappings.txt
-  // TODO: gas_snapshot_check / forge snapshot — not supported
-  //   See: https://github.com/NomicFoundation/hardhat/issues/7769
+  // Gas snapshots: use `npx hardhat test solidity --snapshot` / `--snapshot-check`
 });
