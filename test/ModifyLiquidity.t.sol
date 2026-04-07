@@ -3,22 +3,22 @@ pragma solidity ^0.8.20;
 
 import {Test} from "forge-std/Test.sol";
 import {Deployers} from "./utils/Deployers.sol";
-import {PoolKey} from "src/types/PoolKey.sol";
-import {ModifyLiquidityParams} from "src/types/PoolOperation.sol";
-import {IPoolManager} from "src/interfaces/IPoolManager.sol";
-import {IHooks} from "src/interfaces/IHooks.sol";
-import {Position} from "src/libraries/Position.sol";
-import {PoolId} from "src/types/PoolId.sol";
+import {PoolKey} from "../src/types/PoolKey.sol";
+import {ModifyLiquidityParams} from "../src/types/PoolOperation.sol";
+import {IPoolManager} from "../src/interfaces/IPoolManager.sol";
+import {IHooks} from "../src/interfaces/IHooks.sol";
+import {Position} from "../src/libraries/Position.sol";
+import {PoolId} from "../src/types/PoolId.sol";
 import {PoolModifyLiquidityTest} from "../src/test/PoolModifyLiquidityTest.sol";
 import {Constants} from "./utils/Constants.sol";
-import {Currency} from "src/types/Currency.sol";
+import {Currency} from "../src/types/Currency.sol";
 import {MockERC20} from "solmate/src/test/utils/mocks/MockERC20.sol";
-import {StateLibrary} from "src/libraries/StateLibrary.sol";
+import {StateLibrary} from "../src/libraries/StateLibrary.sol";
 import {JavascriptFfi} from "./utils/JavascriptFfi.sol";
 import {BalanceDelta} from "../src/types/BalanceDelta.sol";
 import {Fuzzers} from "../src/test/Fuzzers.sol";
-import {TickMath} from "src/libraries/TickMath.sol";
-import {toBalanceDelta} from "src/types/BalanceDelta.sol";
+import {TickMath} from "../src/libraries/TickMath.sol";
+import {toBalanceDelta} from "../src/types/BalanceDelta.sol";
 import {Logger} from "./utils/Logger.sol";
 
 contract ModifyLiquidityTest is Test, Logger, Deployers, JavascriptFfi, Fuzzers {
@@ -48,9 +48,9 @@ contract ModifyLiquidityTest is Test, Logger, Deployers, JavascriptFfi, Fuzzers 
     //////////////////////////////////////////////////////////////*/
 
     /// forge-config: default.fuzz.runs = 10
-    /// forge-config: pr.fuzz.runs = 10
-    /// forge-config: ci.fuzz.runs = 500
-    /// forge-config: debug.fuzz.runs = 10
+    // forge-config: pr.fuzz.runs = 10 // HARDHAT: non-default profiles not supported inline
+    // forge-config: ci.fuzz.runs = 500 // HARDHAT: non-default profiles not supported inline
+    // forge-config: debug.fuzz.runs = 10 // HARDHAT: non-default profiles not supported inline
     function test_ffi_fuzz_addLiquidity_defaultPool_ReturnsCorrectLiquidityDelta(ModifyLiquidityParams memory paramSeed)
         public
     {

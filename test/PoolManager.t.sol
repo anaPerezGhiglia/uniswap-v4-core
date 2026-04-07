@@ -88,7 +88,7 @@ contract PoolManagerTest is Test, Deployers {
 
     function test_initcodeHash() public {
         vm.snapshotValue(
-            "poolManager initcode hash (without constructor params, as uint256)",
+            "poolManager initcode hash - without constructor params as uint256",
             uint256(keccak256(type(PoolManager).creationCode))
         );
     }

@@ -13,7 +13,7 @@ import {Currency} from "../../src/types/Currency.sol";
 import {PoolManager} from "../../src/PoolManager.sol";
 import {PoolSwapTest} from "../../src/test/PoolSwapTest.sol";
 import {PoolDonateTest} from "../../src/test/PoolDonateTest.sol";
-import {Deployers} from "test/utils/Deployers.sol";
+import {Deployers} from "../utils/Deployers.sol";
 import {ProtocolFees} from "../../src/ProtocolFees.sol";
 import {PoolId} from "../../src/types/PoolId.sol";
 import {PoolKey} from "../../src/types/PoolKey.sol";
